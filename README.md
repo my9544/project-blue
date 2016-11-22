@@ -12,7 +12,7 @@ Message send my friends
 
 anniversary sentence save
 
-gloobal event save
+global event save
 
 If happiness day or gloomy day show sentence.
 
