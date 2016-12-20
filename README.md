@@ -23,6 +23,16 @@ This project goal is Computer, Android and IOS version GUI making
 
 
 
-Reprot
+#Reprot
+
+Project Title: Blue Date Calculation
+
+Team Name: Blue Team Member Name: Park Jun-sun
+
+Goal: to manage everything about the date
+
+Orientation: a program that manages everything
+
+Implementation language: c language MIT license is covered
 
 
