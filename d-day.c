@@ -1,45 +1,33 @@
 #include <stdio.h>
 
-
-int monthc(int gm, int hm, int leapt){
-	int d-d = 0;
-	int m[12];
-	if(gm > hm){
-		while(gm != hm){
-			int i = 0;
-			gm--;
-			m[i] = gm;
-			i++; 
+int month(int bm, int sm){
+	int dmd = 0;
+	while(bm != sm){
+		bm--;
+		if(bm == 1 || bm == 3 || bm == 5 || bm == 7 || bm == 8 || bm == 10 || bm == 12){
+			dmd += 31;
 		}
-		return m;	
+		else if(bm == 4 || bm == 6 || bm == 9 || bm == 11){
+			dmd += 30;
+		}
+		else if(bm == 2){
+			dmd += 28;	
+		}
+		
+		
 	}
-	else if(hm > gm){
-		while(gm != hm){
-			int j = 0;
-			hm--;
-			m[i] = hm;
-			j++;
-		}
-		return m;
-	}
-	for(int d = 0; m[d] != '\0'; d++){
-		if(m[d] == 1 || m[d] == 3 || m[d] == 5 || m[d] == 7 || m[d] == 8 || m[d] == 10 || m[d] == 12){
-			d-d += 31;
-		}
-		if(m[d] == 2){
-			if(leapt >= 1){
-				d-d += 29;
-			}else{
-				d-d += 28;
-			}
-		}
 	
-		if(m[d] == 4 || m[d] == 6 || m[d] == 9 || m[d] == 11){
-			d-d += 30;
-		}
-	}
-	return d-d;
+	return dmd;
+}
 
+
+int monthc(int gm, int hm){
+	if(gm > hm){
+		month(gm, hm);
+	}
+	else{
+		month(hm, gm);
+	}
 	
 }
 
@@ -52,18 +40,34 @@ int dayc(int gday, int hday){
 	else if(gday < hday){
 		day = hday - gday;
 	}
+	else{
+		day = 0;
+	}
+	
 	return day;
+}
+
+int yearc(int gyear, int hyear){
+	int dyd = 0;
+	int i = 0;
+	i = hyear - gyear;
+	
+	dyd = (i * 365);
+	
+	return dyd;
 }
 
 
 
 
-
-int leapc(int hyear, int gyear){
+int leapc(int gyear, int hyear){
 	int leapt = 0;
 	while(gyear != hyear){
-		if((gyear % 4 == 0 && gyear % 100 == 0)|| gyear % 400 == 0){
+		if((gyear % 4 == 0 && gyear % 100 != 0)|| gyear % 400 == 0){
 			leapt++;
+			gyear++;
+		}
+		else{
 			gyear++;
 		}
 	}
@@ -76,15 +80,28 @@ int main(){
 	int hm = 0;
 	int hyear = 0;
 	int gyear = 0;
-	int leap = 0;
+	int leapt = 0;
 	int hday = 0;
 	int gday = 0;
-	int d-d = 0;
+	int dd = 0;
 
-	scanf("%d년 %d월 %d일부터 %d년 %d월 %d일까지", &gyear, &gm, &gday, &hyear, &hm, &hday);
+	printf("Year, month, day\n");
+	scanf("%d %d %d", &gyear, &gm, &gday);
+	printf("Year, month, day\n");
+	scanf("%d %d %d", &hyear, &hm, &hday);
 	
-	leap += leap(year);
-	d-d += monthc(gm, hm, leap) + dayc(gday, hday); 
-	
+	leapt = leapc(gyear, hyear);
+	if(gm > hm){
+		dd = yearc(gyear, hyear) - monthc(gm, hm) - dayc(gday, hday);
+	}
+	else if(hm > gm){
+		dd = yearc(gyear, hyear) + monthc(gm, hm) + dayc(gday, hday);
+	}
+	else{
+		dd = yearc(gyear, hyear) + leapc(gyear, hyear);
+	}
+
+	printf("%d\n", dd);
+	return 0;
 	
 }
