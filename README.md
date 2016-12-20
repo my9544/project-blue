@@ -19,3 +19,10 @@ introduce lunatic calender
 If happiness day or gloomy day show sentence.
 
 This project goal is Computer, Android and IOS version GUI making  
+
+
+
+
+Reprot
+
+
