@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int month(int bm, int sm){
+int month(int bm, int sm){ """ 달을 입력받아 며칠인지 계산함"""
 	int dmd = 0;
 	while(bm != sm){
 		bm--;
@@ -21,7 +21,7 @@ int month(int bm, int sm){
 }
 
 
-int monthc(int gm, int hm){
+int monthc(int gm, int hm){ """달이 큰지 작은지를 비교한 후 month함수에 넣음"""
 	if(gm > hm){
 		month(gm, hm);
 	}
@@ -32,7 +32,7 @@ int monthc(int gm, int hm){
 }
 
 
-int dayc(int gday, int hday){
+int dayc(int gday, int hday){ """날을 계산"""
 	int day = 0;
 	if(gday > hday){
 		day = gday - hday;
@@ -47,7 +47,7 @@ int dayc(int gday, int hday){
 	return day;
 }
 
-int yearc(int gyear, int hyear){
+int yearc(int gyear, int hyear){ """년도를 계산"""
 	int dyd = 0;
 	int i = 0;
 	i = hyear - gyear;
@@ -60,7 +60,7 @@ int yearc(int gyear, int hyear){
 
 
 
-int leapc(int gyear, int hyear){
+int leapc(int gyear, int hyear){"""윤년 계산"""
 	int leapt = 0;
 	while(gyear != hyear){
 		if((gyear % 4 == 0 && gyear % 100 != 0)|| gyear % 400 == 0){
@@ -84,24 +84,25 @@ int main(){
 	int hday = 0;
 	int gday = 0;
 	int dd = 0;
+	printf("input 1 start: ");
+	while(getchar() != EOF){"""EOF가 입력될때까지 무한히 계산함 """
 
-	printf("Year, month, day\n");
-	scanf("%d %d %d", &gyear, &gm, &gday);
-	printf("Year, month, day\n");
-	scanf("%d %d %d", &hyear, &hm, &hday);
-	
-	leapt = leapc(gyear, hyear);
-	if(gm > hm){
-		dd = yearc(gyear, hyear) - monthc(gm, hm) - dayc(gday, hday);
-	}
-	else if(hm > gm){
-		dd = yearc(gyear, hyear) + monthc(gm, hm) + dayc(gday, hday);
-	}
-	else{
-		dd = yearc(gyear, hyear) + leapc(gyear, hyear);
-	}
+		printf("Year, month, day\n");
+		scanf("%d %d %d", &gyear, &gm, &gday);
+		printf("Year, month, day\n");
+		scanf("%d %d %d", &hyear, &hm, &hday);
+		
+		leapt = leapc(gyear, hyear);
+		if(gm > hm){
+			dd = yearc(gyear, hyear) - monthc(gm, hm) - dayc(gday, hday);
+		}
+		else if(hm > gm){
+			dd = yearc(gyear, hyear) + monthc(gm, hm) + dayc(gday, hday);
+		}
+		else{
+			dd = yearc(gyear, hyear) + leapc(gyear, hyear);
+		}
 
-	printf("%d\n", dd);
-	return 0;
-	
+		printf("%d\n", dd);
+	}
 }
