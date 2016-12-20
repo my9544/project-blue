@@ -34,5 +34,12 @@ Goal: to manage everything about the date
 Orientation: a program that manages everything
 
 Implementation language: c language MIT license is covered
+
+
+
+
+#Start execution
+
+
 ![open1](https://cloud.githubusercontent.com/assets/22341351/21351378/9532e8aa-c6ff-11e6-8eb7-8b2046fa26b7.jpg)
 
