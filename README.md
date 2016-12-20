@@ -51,3 +51,28 @@ Implementation language: c language MIT license is covered
 
 
 ![open3](https://cloud.githubusercontent.com/assets/22341351/21351416/c815f9b0-c6ff-11e6-9ccf-e2a06968901f.jpg)
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Future plans
+
+Count a few days later
+
+
+User interface creation
+
+Create various modes
+
+Lunatic calender calculation
+
+Save and import anniversaries to file
