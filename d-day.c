@@ -100,7 +100,7 @@ int main(){
 			dd = yearc(gyear, hyear) + monthc(gm, hm) + dayc(gday, hday);
 		}
 		else{
-			dd = yearc(gyear, hyear) + leapc(gyear, hyear);
+			dd = yearc(gyear, hyear) +dayc(gday, hday) + leapc(gyear, hyear);
 		}
 
 		printf("%d\n", dd);
